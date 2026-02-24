@@ -1,0 +1,64 @@
+body{
+    margin: 0 auto;
+    font-family: "Geist", sans-serif;
+    padding: 60px 245px;
+    background-color: #F8FAFC;
+    color: #002C5C;
+}
+.counts{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1110px;
+}
+.counts h2{
+    font-size: 24px;
+    font-weight: bold;
+}
+.counts p{
+    font-size: 14px;
+    color: darkgrey;
+}
+.counts .count-card{
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 0.5rem;
+    width: 34%;
+    height: 97px;
+    background-color: white;
+}
+.job-details{
+    margin-top: 20px;
+    max-width: 100%;
+    background-color: white;
+    border: 0.8px solid #F1F2F4;
+    border-radius: 4px;
+    padding: 24px;
+}
+.notApplied{
+    background-color: #EEF4FF;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 8px;
+    border-radius: 4px;
+    width: 10%;
+    opacity: 100%;
+}
+.badges{
+    display: flex;
+    justify-content: left;
+    gap: 1rem;
+    margin-top: 20px;
+}
+.badge1{
+    color: green;
+    border: 1px solid green;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+.badge2{
+    color: red;
+    border: 1px solid red;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
