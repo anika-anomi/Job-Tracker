@@ -27,6 +27,35 @@ body{
     height: 97px;
     background-color: white;
 }
+.available-jobs{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1110px;
+}
+.filter{
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.filter button{
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #64748B;
+}
+.filter-btn{
+    background-color: white;
+    color: #64748B;
+}
+.active {
+  background: #0ea5b7;
+  color: white;
+}
+
 .job-details{
     margin-top: 20px;
     max-width: 100%;

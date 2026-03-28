@@ -1,143 +1,229 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <script src="main.js"></script>
-
-    </head>
-    <body>
-        <h1>Job Application Tracker</h1>
-        <div class="counts">
-            <div class="count-card">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOB Tracker</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet">
+                
+</head>
+<body class="text-gray-700">
+    <header class="w-[80%] mx-auto header">
+        <h1 class="text-4xl font-bold">Job Application Tracker</h1>
+        <div class="sum">
+            <div class="sum-card">
                 <p>Total</p>
-                <h2>0</h2>
+                <p id="total" class="text-3xl font-bold">0</p>
             </div>
-            <div class="count-card">
+            <div class="sum-card">
                 <p>Interview</p>
-                <h2 style="color: green;">0</h2>
+                <p id="interviewTotal" class="text-3xl font-bold text-green-600">0</p>
             </div>
-            <div class="count-card">
+            <div class="sum-card">
                 <p>Rejected</p>
-                <h2 style="color: red;">0</h2>
+                <p id="rejectedTotal" class="text-3xl font-bold text-red-600">0</p>
             </div>
         </div>
-        <hr style="color: #E6E7E9; margin-top: 30px; margin-bottom: 30px; width: 100%;">
-        <div>
+    </header>
+    <main class="w-[80%] mx-auto main">
+        <div class="jobs-header">
+            <h3 class="text-3xl font-bold">Available Jobs</h3>
+            <p><span id="count">0 </span> of 8 Jobs</p>
+        </div>
+       
+        <div class="filters">
             <div>
-                <h3>Available Jobs</h3>
-                <p>8 jobs</p>
+                <button onclick="toggleStyle('all-filter-btn')" class="filter-btn active" id="all-filter-btn">All</button>
+                <button onclick="toggleStyle('interview-filter-btn')" class="filter-btn" id="interview-filter-btn">Interview</button>
+                <button onclick="toggleStyle('rejected-filter-btn')" class="filter-btn" id="rejected-filter-btn">Rejected</button>
             </div>
-            <div>
-                <button>All</button>
-                <button>Interview</button>
-                <button>Rejected</button>
+            
+        </div>
+        <section id="filtered-section" class="hidden">
+          
+        </section>
+        <section id="allCard">
+            <div class="no-job-message hidden">
+              
             </div>
-            <div>
-                <div class="job-details">
-                    <h3>Mobile First Corp</h3>
-                    <h4>React Native Developer</h4>
-                    <p>Remote • Full-time • $130,000 - $175,000</p>
-                    <p class="notApplied">Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. 
-                        Work on products used by millions of users worldwide.</p>
-                    <div class="badges">
-                        <p class="badge1">INTERVIEW</p>
-                        <p class="badge2">REJECTED</p>
+            <div class="card">
+                <div>
+                    <div>
+                        <p class="compayName">Mobile First Corp</p>
+                        <p class="jobName">React Native Developer</p>
+                        <p class="jobDescription"> Remote • Full-time • $110,000 - $145,000</p>
+                    </div>
+                    
+                    <p class="status">Not Applied</p>
+                    <p class="notes">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                   
+                    <div class="action-btn">
+                        <button class="interview-btn">Interview</button>
+                        <button class="rejected-btn">Rejected</button>
                     </div>
                     
                 </div>
-                <div class="job-details">
-                    <h3>Mobile First Corp</h3>
-                    <h4>React Native Developer</h4>
-                    <p>Remote • Full-time • $130,000 - $175,000</p>
-                    <p class="notApplied">Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. 
-                        Work on products used by millions of users worldwide.</p>
-                    <div class="badges">
-                        <p class="badge1">INTERVIEW</p>
-                        <p class="badge2">REJECTED</p>
-                    </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
                 </div>
-                <div class="job-details">
-                    <h3>Mobile First Corp</h3>
-                    <h4>React Native Developer</h4>
-                    <p>Remote • Full-time • $130,000 - $175,000</p>
-                    <p>Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. 
-                        Work on products used by millions of users worldwide.</p>
-                    <p>Not Applied</p>
-                    <div class="badges">
-                        <p class="badge1">INTERVIEW</p>
-                        <p class="badge2">REJECTED</p>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div>
+                        <p class="compayName">WebFlow Agency</p>
+                        <p class="jobName">Web Designer & Developer</p>
+                        <p class="jobDescription"> Hybrid • Full-time • $85,000 - $105,000</p>
                     </div>
-                </div>
-                <div class="job-details">
-                    <h3>Mobile First Corp</h3>
-                    <h4>React Native Developer</h4>
-                    <p>Remote • Full-time • $130,000 - $175,000</p>
-                    <p>Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. 
-                        Work on products used by millions of users worldwide.</p>
-                    <p>Not Applied</p>
-                    <div class="badges">
-                        <p class="badge1">INTERVIEW</p>
-                        <p class="badge2">REJECTED</p>
-                    </div>
-                </div>
-                <div class="job-details">
-                    <h3>Mobile First Corp</h3>
-                    <h4>React Native Developer</h4>
-                    <p>Remote • Full-time • $130,000 - $175,000</p>
-                    <p>Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. 
-                        Work on products used by millions of users worldwide.</p>
-                    <p>Not Applied</p>
-                    <div class="badges">
-                        <p class="badge1">INTERVIEW</p>
-                        <p class="badge2">REJECTED</p>
-                    </div>
-                </div>
-                <div class="job-details">
-                    <h3>Mobile First Corp</h3>
-                    <h4>React Native Developer</h4>
-                    <p>Remote • Full-time • $130,000 - $175,000</p>
-                    <p>Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. 
-                        Work on products used by millions of users worldwide.</p>
-                    <p>Not Applied</p>
-                    <div class="badges">
-                        <p class="badge1">INTERVIEW</p>
-                        <p class="badge2">REJECTED</p>
-                    </div>
-                </div>
-                <div class="job-details">
-                    <h3>Mobile First Corp</h3>
-                    <h4>React Native Developer</h4>
-                    <p>Remote • Full-time • $130,000 - $175,000</p>
-                    <p>Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. 
-                        Work on products used by millions of users worldwide.</p>
-                    <p>Not Applied</p>
-                    <div class="badges">
-                        <p class="badge1">INTERVIEW</p>
-                        <p class="badge2">REJECTED</p>
-                    </div>
-                </div>
-                <div class="job-details">
-                    <h3>Mobile First Corp</h3>
-                    <h4>React Native Developer</h4>
-                    <p>Remote • Full-time • $130,000 - $175,000</p>
-                    <p>Not Applied</p>
-                    <p>Build cross-platform mobile applications using React Native. 
-                        Work on products used by millions of users worldwide.</p>
-                    <p>Not Applied</p>
-                    <div class="badges">
-                        <p class="badge1">INTERVIEW</p>
-                        <p class="badge2">REJECTED</p>
+                    
+                    <p class="status">Not Applied</p>
+                    <p class="notes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                   
+                    <div class="action-btn">
+                        <button class="interview-btn">Interview</button>
+                        <button class="rejected-btn">Rejected</button>
                     </div>
                     
                 </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
             </div>
-        </div>
-    </body>
+
+            <div class="card">
+                <div>
+                    <div>
+                        <p class="compayName">DataViz Solutions</p>
+                        <p class="jobName">React Native Developer</p>
+                        <p class="jobDescription"> On-site • Full-time • $125,000 - $160,000</p>
+                    </div>
+                    
+                    <p class="status">Not Applied</p>
+                    <p class="notes">Harden cloud infrastructure, automate vulnerability scans, and respond to security incidents.</p>
+                   
+                    <div class="action-btn">
+                        <button class="interview-btn">Interview</button>
+                        <button class="rejected-btn">Rejected</button>
+                    </div>
+                    
+                </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div>
+                        <p class="compayName">WebFlow Agency</p>
+                        <p class="jobName">Web Designer & Developer</p>
+                        <p class="jobDescription"> Remote • Contract • $70/hr - $95/hr</p>
+                    </div>
+                    
+                    <p class="status">Not Applied</p>
+                    <p class="notes">Create user flows, wireframes, and high-fidelity prototypes for web and mobile products.</p>
+                    <div class="action-btn">
+                        <button class="interview-btn">Interview</button>
+                        <button class="rejected-btn">Rejected</button>
+                    </div>
+                    
+                </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div>
+                        <p class="compayName">DataViz Solutions</p>
+                        <p class="jobName">Data Visualization Specialist</p>
+                        <p class="jobDescription"> Hybrid • Full-time • $140,000 - $185,000</p>
+                    </div>                   
+                    <p class="status">Not Applied</p>
+                    <p class="notes">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
+                   
+                    <div class="action-btn">
+                        <button class="interview-btn">Interview</button>
+                        <button class="rejected-btn">Rejected</button>
+                    </div>
+                    
+                </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div>
+                        <p class="compayName">CloudFirst Inc</p>
+                        <p class="jobName">Backend Developer</p>
+                        <p class="jobDescription"> Remote • Full-time • $115,000 - $150,000</p>
+                    </div>
+                    
+                    <p class="status">Not Applied</p>
+                    <p class="notes">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
+                   
+                    <div class="action-btn">
+                        <button class="interview-btn">Interview</button>
+                        <button class="rejected-btn">Rejected</button>
+                    </div>
+                    
+                </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div>
+                        <p class="compayName">MegaCorp Solutions</p>
+                        <p class="jobName">JavaScript Developer</p>
+                        <p class="jobDescription"> On-site • Full-time • $120,000 - $155,000</p>
+                    </div>
+                    
+                    <p class="status">Not Applied</p>
+                    <p class="notes">Define product roadmap, prioritize features, and coordinate execution across engineering and design.</p>
+                   
+                    <div class="action-btn">
+                        <button class="interview-btn">Interview</button>
+                        <button class="rejected-btn">Rejected</button>
+                    </div>
+                    
+                </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div>
+                        <p class="compayName">TechCorp Industries</p>
+                        <p class="jobName">Senior Frontend Developer</p>
+                        <p class="jobDescription"> San Francisco, CA • Full-time • $130,000 - $175,000</p>
+                    </div>
+                    
+                    <p class="status">Not Applied</p>
+                    <p class="notes">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                   
+                    <div class="action-btn">
+                        <button class="interview-btn">Interview</button>
+                        <button class="rejected-btn">Rejected</button>
+                    </div>
+                    
+                </div>
+                <div>
+                    <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
 </html>
