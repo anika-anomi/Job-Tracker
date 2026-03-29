@@ -152,5 +152,14 @@ h3{
     margin-bottom: 10px;
 }
 
+@media (max-width: 768px) {
+    .no-job-message{
+        padding: 50px;
+        margin-bottom: 20px;
+    }
+    .sum {
+        grid-template-columns: 1fr;
+    }
+}
 
 
